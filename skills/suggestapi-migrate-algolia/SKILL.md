@@ -1,10 +1,11 @@
 ---
 name: suggestapi-migrate-algolia
-description: Put SuggestAPI in front of an existing Algolia implementation without unnecessarily rebuilding the index. Use when replacing Algolia client calls, hiding Algolia credentials, normalizing search APIs, testing another backend, or reducing application coupling to Algolia.
+description: Put SuggestAPI in front of an existing Algolia implementation without unnecessarily rebuilding the index. Use when replacing Algolia client calls, hiding Algolia credentials, or reducing application coupling to Algolia. Do not use when the current search stack is Typesense.
 license: MIT
+compatibility: Requires network access to api.suggestapi.com for live API testing. Coding workflows may require access to the target application's source tree.
 metadata:
   author: suggestapi
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Route Algolia through SuggestAPI
@@ -21,6 +22,8 @@ The default goal is a proxy/adapter migration, not an index migration.
 6. Add an adapter at the UI boundary if the existing component expects Algolia-specific hit fields.
 7. Compare result ordering, URLs, filters, latency, and empty-query behavior before removing the old path.
 8. Where available, use shadow traffic or staged routing to compare providers without changing client code.
+
+Read `references/api.md` for the client contract.
 
 ## Preserve first
 

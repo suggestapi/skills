@@ -1,10 +1,11 @@
 ---
 name: suggestapi-ingestion
-description: Plan and implement SuggestAPI indexing, imports, document ingestion, catalog sync, or bulk-loading workflows. Use when a user needs to create/populate an index, import products, schedule updates, process large files, or keep catalog data synchronized.
+description: Plan and implement SuggestAPI indexing, imports, document ingestion, catalog sync, or bulk-loading workflows. Use when a user needs to create/populate an index, import products, schedule updates, process large files, or keep catalog data synchronized. Do not use when the task is only querying an already populated index.
 license: MIT
+compatibility: Requires network access to api.suggestapi.com for live API testing. Coding workflows may require access to the target application's source tree.
 metadata:
   author: suggestapi
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Ingest data into SuggestAPI
@@ -19,6 +20,8 @@ metadata:
 6. Prefer asynchronous jobs for large datasets and capture job status/errors.
 7. Plan deletes and stale-record cleanup as part of synchronization, not as an afterthought.
 8. Validate search behavior after ingestion using representative queries.
+
+Writes use `Authorization: Bearer` with a private key. See `references/api.md` for the auth split; search verification still uses `GET /v1/autocomplete` with `x-api-key`.
 
 ## Important
 

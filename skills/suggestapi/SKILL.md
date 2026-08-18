@@ -1,25 +1,33 @@
 ---
 name: suggestapi
-description: Route SuggestAPI integration work to the right specialized workflow. Use when a user wants to add, migrate, proxy, optimize, or expose search, autocomplete, catalog discovery, or agent-facing product retrieval through SuggestAPI, including existing Algolia or Typesense stacks.
+description: >
+  Explain SuggestAPI capabilities and choose which SuggestAPI integration
+  workflow to use. Use when the user asks generally how to integrate
+  SuggestAPI or is unsure whether they need search, autocomplete,
+  ingestion, Shopify, Algolia migration, Typesense, or agent search.
+  Do not use when the user has already specified one of those workflows.
 license: MIT
+compatibility: Requires network access to api.suggestapi.com for live API testing. Coding workflows may require access to the target application's source tree.
 metadata:
   author: suggestapi
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
-# SuggestAPI router
+# SuggestAPI orientation
 
-Use this skill to choose the narrowest SuggestAPI workflow before making changes.
+Use this skill only when the task is still ambiguous. If the user already named search, autocomplete, Shopify, Algolia, Typesense, agent catalog access, or ingestion, use that specialized skill instead.
 
-## Route by task
+Specialized skills are independently discoverable. Load them by skill name if they are installed; do not depend on sibling relative paths.
 
-- Full application or catalog search → load `../suggestapi-search/SKILL.md`.
-- Search-bar autocomplete or typeahead → load `../suggestapi-autocomplete/SKILL.md`.
-- Shopify storefront search → load `../suggestapi-shopify/SKILL.md`.
-- Existing Algolia implementation → load `../suggestapi-migrate-algolia/SKILL.md`.
-- Existing Typesense implementation → load `../suggestapi-typesense/SKILL.md`.
-- AI assistant, agent, copilot, product-discovery bot, ARD, or agent-facing catalog retrieval → load `../suggestapi-agent-search/SKILL.md`.
-- Indexing, import, sync, document ingestion, catalog feed, or bulk loading → load `../suggestapi-ingestion/SKILL.md`.
+## Choose a workflow
+
+- Full application or catalog search → `suggestapi-search`
+- Search-bar autocomplete or typeahead → `suggestapi-autocomplete`
+- Shopify theme or Hydrogen storefront → `suggestapi-shopify`
+- Existing Algolia implementation → `suggestapi-migrate-algolia`
+- Existing Typesense implementation → `suggestapi-typesense`
+- AI assistant, copilot, ARD, or agent-facing catalog retrieval → `suggestapi-agent-search`
+- Indexing, import, sync, or bulk loading → `suggestapi-ingestion`
 
 ## Core architecture
 

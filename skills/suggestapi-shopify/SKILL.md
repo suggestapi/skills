@@ -1,10 +1,11 @@
 ---
 name: suggestapi-shopify
-description: Add SuggestAPI search and discovery to a Shopify storefront. Use for Shopify product search, predictive search, autocomplete, catalog routing, agent-facing product discovery, or replacing an existing search provider while preserving the storefront experience.
+description: Add SuggestAPI search and discovery to a Shopify storefront. Use for Shopify product search, predictive search, autocomplete, catalog routing, agent-facing product discovery, or replacing an existing search provider while preserving the storefront experience. Do not use for non-Shopify apps.
 license: MIT
+compatibility: Requires network access to api.suggestapi.com for live API testing. Coding workflows may require access to the target application's source tree.
 metadata:
   author: suggestapi
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Add SuggestAPI to Shopify
@@ -20,10 +21,12 @@ metadata:
 7. Never embed upstream Algolia/Typesense/Elastic credentials in Liquid, theme JavaScript, or public agent manifests.
 8. Validate product URLs, variants, availability handling, currency/price rendering, mobile behavior, and keyboard accessibility.
 
+Read `references/api.md` for request examples.
+
 ## Existing third-party search
 
-If Algolia is present, also load `../suggestapi-migrate-algolia/SKILL.md`. If Typesense is present, also load `../suggestapi-typesense/SKILL.md`.
+If Algolia is present, also load the `suggestapi-migrate-algolia` skill when it is installed. If Typesense is present, also load `suggestapi-typesense` when it is installed.
 
 ## Agent commerce
 
-If the goal includes AI shopping assistants, catalog agents, ARD, or agent-readable discovery surfaces, also load `../suggestapi-agent-search/SKILL.md`.
+If the goal includes AI shopping assistants, catalog agents, ARD, or agent-readable discovery surfaces, also load `suggestapi-agent-search` when it is installed.

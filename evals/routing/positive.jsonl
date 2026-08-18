@@ -1,0 +1,12 @@
+{"prompt":"We already use Algolia. Put SuggestAPI in front of it without changing the UI.","expected":["suggestapi-migrate-algolia"]}
+{"prompt":"Can I stop exposing Algolia config to my SPA and route searches through SuggestAPI?","expected":["suggestapi-migrate-algolia"]}
+{"prompt":"We currently use Algolia. Route it through SuggestAPI so we can later switch the backend to Typesense without changing the UI.","expected":["suggestapi-migrate-algolia"]}
+{"prompt":"Add typo-tolerant product suggestions under the search box.","expected":["suggestapi-autocomplete"]}
+{"prompt":"Replace this predictive search request with SuggestAPI.","expected":["suggestapi-autocomplete"]}
+{"prompt":"Add SuggestAPI product search to this Shopify theme.","expected":["suggestapi-shopify"]}
+{"prompt":"Use SuggestAPI for predictive search in our Hydrogen storefront.","expected":["suggestapi-shopify"]}
+{"prompt":"Give my shopping assistant live access to the merchant catalog.","expected":["suggestapi-agent-search"]}
+{"prompt":"Expose current products to an AI agent without handing it our Typesense API key.","expected":["suggestapi-agent-search"]}
+{"prompt":"Import this 800k-product feed into SuggestAPI and keep it synchronized.","expected":["suggestapi-ingestion"]}
+{"prompt":"Replace our app search API calls with SuggestAPI ranked search.","expected":["suggestapi-search"]}
+{"prompt":"How should I integrate SuggestAPI? I am not sure whether I need search or ingestion.","expected":["suggestapi"]}

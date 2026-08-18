@@ -1,10 +1,11 @@
 ---
 name: suggestapi-autocomplete
-description: Add or improve SuggestAPI autocomplete and typeahead. Use when building a search box, predictive suggestions, typo-tolerant suggestions, product/category suggestions, or replacing provider-specific autocomplete calls.
+description: Add or improve SuggestAPI autocomplete and typeahead. Use when building a search box, predictive suggestions, typo-tolerant suggestions, product/category suggestions, or replacing provider-specific autocomplete calls. Do not use for full result-page search, ingestion, or Shopify theme wiring unless the task is only the search-bar endpoint.
 license: MIT
+compatibility: Requires network access to api.suggestapi.com for live API testing. Coding workflows may require access to the target application's source tree.
 metadata:
   author: suggestapi
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Add SuggestAPI autocomplete
@@ -25,4 +26,12 @@ metadata:
 7. Cancel stale requests as the user continues typing.
 8. Track selection/click behavior using the application's existing analytics path unless SuggestAPI tracking is explicitly available and requested.
 
-Read `../../references/api.md` for request examples, then validate against current docs.
+Read `references/api.md` for request examples, then validate against current docs.
+
+## Verify
+
+From this skill directory:
+
+```bash
+node scripts/smoke-test.mjs --api-key "$SUGGESTAPI_PUBLIC_KEY" --index products --query "run"
+```

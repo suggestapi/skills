@@ -1,0 +1,13 @@
+{
+  "name": "@suggestapi/agent-skills",
+  "private": true,
+  "type": "module",
+  "description": "Official SuggestAPI Agent Skills",
+  "scripts": {
+    "sync:api": "node scripts/sync-api-reference.mjs",
+    "validate": "node scripts/validate-skills.mjs",
+    "check:openapi": "node scripts/check-openapi.mjs",
+    "smoke:search": "node evals/api/search-smoke.mjs",
+    "smoke:typeahead": "node evals/api/typeahead-smoke.mjs"
+  }
+}

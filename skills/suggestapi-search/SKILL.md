@@ -1,10 +1,11 @@
 ---
 name: suggestapi-search
-description: Implement full ranked search through SuggestAPI. Use for application search, ecommerce catalog search, filters, result pages, or replacing provider-specific client search calls with GET /v1/autocomplete.
+description: Implement full ranked search through SuggestAPI. Use for application search, ecommerce catalog search, filters, result pages, or replacing provider-specific client search calls with GET /v1/autocomplete. Do not use for search-bar typeahead alone, Shopify-specific storefront wiring, or ingestion.
 license: MIT
+compatibility: Requires network access to api.suggestapi.com for live API testing. Coding workflows may require access to the target application's source tree.
 metadata:
   author: suggestapi
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Implement search with SuggestAPI
@@ -20,11 +21,22 @@ Full/ranked search uses `GET https://api.suggestapi.com/v1/autocomplete`. Do not
 5. Send `query`, `index`, and a `limit` (1–50). Add `mode` (`hybrid`, `fts_only`, `vector_only`, or `fts_rerank`) and `filters` (JSON string) when the UI needs them.
 6. Map `suggestions[]` (`id`, `title`, `subtitle`, `url`, `image_url`, `price`, `currency`, and `extra`) into the application's result model.
 7. Handle empty `suggestions`, `degraded: true`, rate limits, and missing URLs without fabricating products.
-8. Test representative lexical, typo, filtered, and multi-word queries.
+8. Prove the integration with the bundled smoke test before calling the work done.
 
 ## Request shape
 
-Start from `../../references/api.md` and verify the current Search API docs plus `https://api.suggestapi.com/openapi.json` before shipping.
+Read `references/api.md`, then verify the current Search API docs plus `https://api.suggestapi.com/openapi.json` before shipping.
+
+## Verify
+
+From this skill directory:
+
+```bash
+node scripts/validate-config.mjs --api-key "$SUGGESTAPI_PUBLIC_KEY" --index products
+node scripts/smoke-test.mjs --api-key "$SUGGESTAPI_PUBLIC_KEY" --index products --query "running shoes"
+```
+
+The smoke test must return HTTP 200, a `suggestions` array, `id`/`title` on hits, and no upstream provider credentials.
 
 ## Architecture preference
 

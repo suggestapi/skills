@@ -1,0 +1,35 @@
+name: Validate skills
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node scripts/validate-skills.mjs
+      - run: node scripts/check-openapi.mjs
+
+  smoke:
+    runs-on: ubuntu-latest
+    needs: validate
+    env:
+      SUGGESTAPI_PUBLIC_KEY: ${{ secrets.SUGGESTAPI_PUBLIC_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Search and typeahead smoke tests
+        run: |
+          if [ -z "$SUGGESTAPI_PUBLIC_KEY" ]; then
+            echo "SUGGESTAPI_PUBLIC_KEY not set; skipping live smoke tests"
+            exit 0
+          fi
+          node evals/api/search-smoke.mjs --index "${SUGGESTAPI_INDEX:-products}" --query "running shoes"
+          node evals/api/typeahead-smoke.mjs --index "${SUGGESTAPI_INDEX:-products}" --query "run"

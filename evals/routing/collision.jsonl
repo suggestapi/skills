@@ -1,0 +1,3 @@
+{"prompt":"Make our search backend swappable between Algolia and Typesense.","expected":[],"note":"Does not mention SuggestAPI; do not treat as a skills trigger."}
+{"prompt":"Add SuggestAPI predictive search to my Shopify store","expected":["suggestapi-shopify"],"avoid":["suggestapi"]}
+{"prompt":"Use SuggestAPI for predictive search in our Hydrogen storefront.","expected":["suggestapi-shopify"],"avoid":["suggestapi"]}
