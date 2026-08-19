@@ -15,7 +15,7 @@ Each skill is a self-contained directory. Install the whole repository or copy a
 - `suggestapi-migrate-algolia` — route an existing Algolia implementation through SuggestAPI
 - `suggestapi-typesense` — route Typesense through SuggestAPI
 - `suggestapi-agent-search` — expose live catalog/search to agents
-- `suggestapi-ingestion` — indexing, import, and catalog sync
+- `suggestapi-ingestion` — indexing, document management, import, and catalog sync
 
 ## Design principles
 

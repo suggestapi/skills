@@ -26,6 +26,9 @@ Use clean sessions when evaluating skill activation. Machine-readable copies liv
 ## Should trigger suggestapi-ingestion
 
 - "Import this 800k-product feed into SuggestAPI and keep it synchronized."
+- "Create a SuggestAPI products index and ingest these documents."
+- "List documents in my SuggestAPI products index and delete stale records."
+- "Get document sku_1001 from the products index via the SuggestAPI documents API."
 
 ## Should trigger suggestapi-search
 

@@ -8,5 +8,8 @@
 {"prompt":"Give my shopping assistant live access to the merchant catalog.","expected":["suggestapi-agent-search"]}
 {"prompt":"Expose current products to an AI agent without handing it our Typesense API key.","expected":["suggestapi-agent-search"]}
 {"prompt":"Import this 800k-product feed into SuggestAPI and keep it synchronized.","expected":["suggestapi-ingestion"]}
+{"prompt":"Create a SuggestAPI products index and ingest these documents.","expected":["suggestapi-ingestion"]}
+{"prompt":"List documents in my SuggestAPI products index and delete stale records.","expected":["suggestapi-ingestion"]}
+{"prompt":"Get document sku_1001 from the products index via the SuggestAPI documents API.","expected":["suggestapi-ingestion"]}
 {"prompt":"Replace our app search API calls with SuggestAPI ranked search.","expected":["suggestapi-search"]}
 {"prompt":"How should I integrate SuggestAPI? I am not sure whether I need search or ingestion.","expected":["suggestapi"]}

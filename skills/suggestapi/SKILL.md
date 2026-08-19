@@ -4,7 +4,7 @@ description: >
   Explain SuggestAPI capabilities and choose which SuggestAPI integration
   workflow to use. Use when the user asks generally how to integrate
   SuggestAPI or is unsure whether they need search, autocomplete,
-  ingestion, Shopify, Algolia migration, Typesense, or agent search.
+  ingestion, document management, Shopify, Algolia migration, Typesense, or agent search.
   Do not use when the user has already specified one of those workflows.
 license: MIT
 compatibility: Requires network access to api.suggestapi.com for live API testing. Coding workflows may require access to the target application's source tree.
@@ -15,7 +15,7 @@ metadata:
 
 # SuggestAPI orientation
 
-Use this skill only when the task is still ambiguous. If the user already named search, autocomplete, Shopify, Algolia, Typesense, agent catalog access, or ingestion, use that specialized skill instead.
+Use this skill only when the task is still ambiguous. If the user already named search, autocomplete, Shopify, Algolia, Typesense, agent catalog access, ingestion, or document management, use that specialized skill instead.
 
 Specialized skills are independently discoverable. Load them by skill name if they are installed; do not depend on sibling relative paths.
 
@@ -27,7 +27,7 @@ Specialized skills are independently discoverable. Load them by skill name if th
 - Existing Algolia implementation → `suggestapi-migrate-algolia`
 - Existing Typesense implementation → `suggestapi-typesense`
 - AI assistant, copilot, ARD, or agent-facing catalog retrieval → `suggestapi-agent-search`
-- Indexing, import, sync, or bulk loading → `suggestapi-ingestion`
+- Indexing, document CRUD, import, sync, or bulk loading → `suggestapi-ingestion`
 
 ## Core architecture
 

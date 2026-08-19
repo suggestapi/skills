@@ -9,6 +9,17 @@ const errors = [];
 
 if (!paths["/v1/autocomplete"]?.get) errors.push("OpenAPI missing GET /v1/autocomplete");
 if (!paths["/v1/typeahead"]?.get) errors.push("OpenAPI missing GET /v1/typeahead");
+if (!paths["/v1/indexes"]?.get) errors.push("OpenAPI missing GET /v1/indexes");
+if (!paths["/v1/indexes"]?.post) errors.push("OpenAPI missing POST /v1/indexes");
+if (!paths["/v1/indexes/{index_id}/documents"]?.get) {
+  errors.push("OpenAPI missing GET /v1/indexes/{index_id}/documents");
+}
+if (!paths["/v1/indexes/{index_id}/documents"]?.post) {
+  errors.push("OpenAPI missing POST /v1/indexes/{index_id}/documents");
+}
+if (!paths["/v1/indexes/{index_id}/documents/{doc_id}"]?.get) {
+  errors.push("OpenAPI missing GET /v1/indexes/{index_id}/documents/{doc_id}");
+}
 if (paths["/query"]) errors.push("OpenAPI unexpectedly defines /query; update skills before teaching it");
 
 if (errors.length) {
@@ -16,4 +27,6 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log("OK: live OpenAPI still documents GET /v1/autocomplete and GET /v1/typeahead, not POST /query");
+console.log(
+  "OK: live OpenAPI still documents GET /v1/autocomplete, GET /v1/typeahead, and public index/document routes, not POST /query",
+);
